@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Allan's Cafe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coffee-dark': '#0F0F0F',
+                        'coffee-med': '#1A1A1A',
+                        'gold-accent': '#C5A059',
+                        'gold-dim': '#8A703E',
+                        'cream-light': '#EAEAEA',
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-coffee-dark text-cream-light overflow-x-hidden antialiased">
+
+    <nav class="fixed w-full top-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/5" id="navbar">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-serif font-bold tracking-widest text-gold-accent">ALLAN'S</a>
+            <div class="hidden md:flex space-x-10 items-center">
+                <a href="index.html" class="nav-link text-xs uppercase tracking-[0.2em] text-white hover:text-gold-accent transition">Home</a>
+                <a href="index.html#about" class="nav-link text-xs uppercase tracking-[0.2em] text-white hover:text-gold-accent transition">About</a>
+                <a href="#" class="nav-link text-xs uppercase tracking-[0.2em] text-gold-accent">Menu</a>
+                <a href="index.html#gallery" class="nav-link text-xs uppercase tracking-[0.2em] text-white hover:text-gold-accent transition">Gallery</a>
+                <a href="index.html#contact" class="px-8 py-2 border border-gold-accent text-gold-accent hover:bg-gold-accent hover:text-coffee-dark transition duration-300 uppercase text-xs tracking-[0.2em]">Reserve</a>
+            </div>
+            <button id="mobile-btn" class="md:hidden text-gold-accent text-2xl"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+     <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-500 flex flex-col items-center justify-center space-y-10">
+        <button id="close-mobile" class="absolute top-8 right-8 text-3xl text-gray-500 hover:text-gold-accent transition">&times;</button>
+        <a href="index.html" class="mobile-link text-3xl font-serif text-white hover:text-gold-accent transition">Home</a>
+        <a href="#" class="mobile-link text-3xl font-serif text-gold-accent">Menu</a>
+        <a href="index.html#contact" class="mobile-link text-3xl font-serif text-white hover:text-gold-accent transition">Contact</a>
+    </div>
+
+    <header class="pt-40 pb-20 text-center bg-[#141414] relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold-accent to-transparent opacity-50"></div>
+        <h1 class="font-serif text-5xl md:text-7xl text-white mb-4">Our Menu</h1>
+        <p class="text-gold-accent uppercase tracking-[0.3em] text-xs">Crafted with Precision</p>
+    </header>
+
+    <div class="container mx-auto px-6 py-20">
+        
+        <div class="mb-20 menu-section">
+            <h2 class="font-serif text-3xl text-white mb-10 border-l-4 border-gold-accent pl-6">Signature Coffee</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">Espresso Macchiato</h3>
+                        <p class="text-sm text-gray-500">Rich espresso marked with foam</p>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$3.50</span>
+                </div>
+                <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">Allan's House Blend</h3>
+                        <p class="text-sm text-gray-500">Medium roast, notes of chocolate & cherry</p>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$4.00</span>
+                </div>
+                <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">Flat White</h3>
+                        <p class="text-sm text-gray-500">Double ristretto, velvet micro-foam</p>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$4.50</span>
+                </div>
+                <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">Cold Brew Reserve</h3>
+                        <p class="text-sm text-gray-500">Steeped 24hrs, served over ice sphere</p>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$5.00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-20 menu-section">
+            <h2 class="font-serif text-3xl text-white mb-10 border-l-4 border-gold-accent pl-6">Breakfast & Brunch</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">Eggs Benedict</h3>
+                        <p class="text-sm text-gray-500">Poached eggs, hollandaise, smoked ham</p>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$14.00</span>
+                </div>
+                <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">Smashed Avocado</h3>
+                        <p class="text-sm text-gray-500">Sourdough, feta, chili, lemon oil</p>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$11.00</span>
+                </div>
+                <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">French Toast</h3>
+                        <p class="text-sm text-gray-500">Brioche, berry compote, maple syrup</p>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$12.50</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2 class="font-serif text-3xl text-white mb-10 border-l-4 border-gold-accent pl-6">Pastries</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">Almond Croissant</h3>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$4.50</span>
+                </div>
+                <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">Pain au Chocolat</h3>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$4.50</span>
+                </div>
+                 <div class="flex justify-between items-end border-b border-dashed border-gray-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-serif text-white mb-1">Cinnamon Bun</h3>
+                    </div>
+                    <span class="text-gold-accent font-bold text-lg">$3.50</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-black py-10 border-t border-white/10 text-center">
+        <p class="text-gray-600 text-xs tracking-widest uppercase">&copy; 2024 Allan's Cafe. Made by Dw33pY</p>
+    </footer>
+
+    <a href="https://wa.me/254742027430" target="_blank" class="fixed bottom-8 left-8 z-[100] group">
+        <div class="relative bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition duration-300">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </div>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
