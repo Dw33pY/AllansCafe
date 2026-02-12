@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allan's Cafe | Sophisticated Dining</title>
+    <meta name="description" content="Experience the finest blends and culinary elegance at Allan's Cafe.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coffee-dark': '#0F0F0F', /* Darker, richer black */
+                        'coffee-med': '#1A1A1A',
+                        'gold-accent': '#C5A059', /* More metallic gold */
+                        'gold-dim': '#8A703E',
+                        'cream-light': '#EAEAEA',
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-coffee-dark text-cream-light overflow-x-hidden antialiased selection:bg-gold-accent selection:text-black">
+
+    <div id="preloader" class="fixed inset-0 bg-coffee-dark z-[9999] flex flex-col items-center justify-center">
+        <i class="fas fa-coffee text-5xl text-gold-accent mb-6 animate-pulse"></i>
+        <h2 class="font-serif text-2xl text-white tracking-[0.5em] uppercase">Allan's</h2>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 transition-all duration-500" id="navbar">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-serif font-bold tracking-widest text-gold-accent relative group">
+                ALLAN'S
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-accent transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <div class="hidden md:flex space-x-10 items-center">
+                <a href="index.html" class="nav-link text-xs uppercase tracking-[0.2em] text-white hover:text-gold-accent transition-colors duration-300">Home</a>
+                <a href="index.html#about" class="nav-link text-xs uppercase tracking-[0.2em] text-white hover:text-gold-accent transition-colors duration-300">About</a>
+                <a href="menu.html" class="nav-link text-xs uppercase tracking-[0.2em] text-gold-accent border-b border-gold-accent pb-1">Menu</a>
+                <a href="index.html#gallery" class="nav-link text-xs uppercase tracking-[0.2em] text-white hover:text-gold-accent transition-colors duration-300">Gallery</a>
+                <a href="index.html#contact" class="px-8 py-3 border border-white/20 text-white hover:border-gold-accent hover:text-gold-accent transition duration-300 uppercase text-xs tracking-[0.2em]">
+                    Reserve
+                </a>
+            </div>
+
+            <button id="mobile-btn" class="md:hidden text-white hover:text-gold-accent transition text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-500 cubic-bezier(0.77, 0, 0.175, 1) flex flex-col items-center justify-center space-y-10">
+        <button id="close-mobile" class="absolute top-8 right-8 text-3xl text-gray-500 hover:text-gold-accent transition">&times;</button>
+        <a href="index.html" class="mobile-link text-3xl font-serif text-white hover:text-gold-accent transition">Home</a>
+        <a href="menu.html" class="mobile-link text-3xl font-serif text-gold-accent">Menu</a>
+        <a href="index.html#about" class="mobile-link text-3xl font-serif text-white hover:text-gold-accent transition">Our Story</a>
+        <a href="index.html#contact" class="mobile-link text-3xl font-serif text-white hover:text-gold-accent transition">Contact</a>
+    </div>
+
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center z-0 parallax-img scale-110" 
+             style="background-image: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-coffee-dark z-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-20 text-center pt-20">
+            <span class="gsap-hero block text-gold-accent tracking-[0.4em] text-xs md:text-sm mb-6 uppercase font-bold">Est. 2024 • Nairobi</span>
+            <h1 class="gsap-hero font-serif text-5xl md:text-7xl lg:text-9xl font-bold mb-8 leading-tight text-white drop-shadow-2xl">
+                Dark Roast <br> <span class="text-gold-accent italic font-normal">& Gold</span>
+            </h1>
+            <p class="gsap-hero text-gray-300 max-w-lg mx-auto mb-12 text-lg font-light leading-relaxed">
+                Where sophisticated flavors meet contemporary elegance.
+            </p>
+            <div class="gsap-hero flex flex-col md:flex-row gap-6 justify-center">
+                <a href="menu.html" class="group relative px-8 py-4 bg-gold-accent text-black font-bold tracking-widest uppercase overflow-hidden">
+                    <span class="relative z-10">View Menu</span>
+                    <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                </a>
+                <a href="#contact" class="group px-8 py-4 border border-white text-white font-bold tracking-widest uppercase hover:bg-white hover:text-black transition duration-300">
+                    Book Table
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce text-gold-accent">
+            <i class="fas fa-chevron-down text-xl"></i>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 bg-coffee-dark relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
+                <div class="w-full md:w-1/2 relative gsap-fade-right">
+                    <div class="absolute -top-6 -left-6 w-32 h-32 border-t border-l border-gold-accent/30 z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Interior" class="w-full h-[500px] object-cover relative z-10 grayscale hover:grayscale-0 transition duration-1000 ease-in-out">
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 border-b border-r border-gold-accent/30 z-0"></div>
+                </div>
+                <div class="w-full md:w-1/2 gsap-fade-left">
+                    <h3 class="text-gold-accent tracking-[0.3em] uppercase mb-4 text-xs font-bold">The Experience</h3>
+                    <h2 class="font-serif text-4xl md:text-6xl mb-8 leading-none text-white">Defined by <br><span class="italic text-gold-dim">Excellence</span></h2>
+                    <p class="text-gray-400 mb-6 leading-loose font-light text-justify">
+                        Allan's Cafe is a sanctuary for those who appreciate the finer details. From the precise temperature of our milk to the ambient lighting of our lounge, every element is curated to provide a contemporary yet timeless escape.
+                    </p>
+                    <div class="flex items-center gap-4 mt-8">
+                        <div class="h-px w-12 bg-gold-accent"></div>
+                        <span class="font-serif italic text-2xl text-white">Allan.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-[#0a0a0a] relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 gsap-fade-up">
+                <span class="text-gold-accent tracking-[0.3em] uppercase text-xs font-bold">Selections</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-white mt-4">Curated Favorites</h2>
+                <div class="w-24 h-px bg-gold-accent mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
+                <div class="menu-item-card opacity-0 group">
+                    <div class="overflow-hidden mb-6 relative h-64">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 z-10"></div>
+                        <img src="https://images.pexels.com/photos/2396220/pexels-photo-2396220.jpeg" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out">
+                    </div>
+                    <div class="flex justify-between items-baseline mb-2 border-b border-white/10 pb-2">
+                        <h3 class="font-serif text-xl text-white group-hover:text-gold-accent transition">Cortado Gold</h3>
+                        <span class="text-gold-accent font-bold">$4.50</span>
+                    </div>
+                    <p class="text-xs text-gray-500 font-light tracking-wide uppercase">Equal parts espresso & milk • 4oz</p>
+                </div>
+
+                <div class="menu-item-card opacity-0 group">
+                    <div class="overflow-hidden mb-6 relative h-64">
+                         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 z-10"></div>
+                        <img src="https://images.pexels.com/photos/15071192/pexels-photo-15071192.jpeg" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out">
+                    </div>
+                    <div class="flex justify-between items-baseline mb-2 border-b border-white/10 pb-2">
+                        <h3 class="font-serif text-xl text-white group-hover:text-gold-accent transition">Red Velvet Cake</h3>
+                        <span class="text-gold-accent font-bold">$6.00</span>
+                    </div>
+                    <p class="text-xs text-gray-500 font-light tracking-wide uppercase">Cream cheese frosting • Cocoa</p>
+                </div>
+
+                <div class="menu-item-card opacity-0 group">
+                    <div class="overflow-hidden mb-6 relative h-64">
+                         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out">
+                    </div>
+                    <div class="flex justify-between items-baseline mb-2 border-b border-white/10 pb-2">
+                        <h3 class="font-serif text-xl text-white group-hover:text-gold-accent transition">Avocado Sourdough</h3>
+                        <span class="text-gold-accent font-bold">$11.00</span>
+                    </div>
+                    <p class="text-xs text-gray-500 font-light tracking-wide uppercase">Poached egg • Chili flakes • Lemon</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-20">
+                <a href="menu.html" class="inline-block border border-gold-accent text-gold-accent px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase hover:bg-gold-accent hover:text-black transition duration-300">
+                    Discover Full Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 bg-coffee-dark border-t border-white/5 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <div class="w-full lg:w-1/2">
+                    <h2 class="font-serif text-5xl text-white mb-8">Reserve Your <br>Moment</h2>
+                    <p class="text-gray-400 mb-10 font-light leading-relaxed max-w-md">
+                        We accept reservations for lunch and dinner. To ensure the best experience, we recommend booking 24 hours in advance.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="group flex items-center text-gray-400 hover:text-gold-accent transition cursor-pointer">
+                            <span class="w-8"><i class="fas fa-phone-alt"></i></span>
+                            <span class="tracking-wider text-sm">+254 742 027 430</span>
+                        </div>
+                        <div class="group flex items-center text-gray-400 hover:text-gold-accent transition cursor-pointer">
+                            <span class="w-8"><i class="fas fa-envelope"></i></span>
+                            <span class="tracking-wider text-sm">reservations@allanscafe.com</span>
+                        </div>
+                        <div class="group flex items-center text-gray-400 hover:text-gold-accent transition cursor-pointer">
+                            <span class="w-8"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="tracking-wider text-sm">Allan's Cafe, Nairobi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2 bg-[#141414] p-8 md:p-12 border border-white/5">
+                    <form class="space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="relative">
+                                <input type="text" id="name" class="peer w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-gold-accent transition placeholder-transparent" placeholder="Name">
+                                <label for="name" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gold-accent peer-focus:text-xs">Name</label>
+                            </div>
+                            <div class="relative">
+                                <input type="tel" id="phone" class="peer w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-gold-accent transition placeholder-transparent" placeholder="Phone">
+                                <label for="phone" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gold-accent peer-focus:text-xs">Phone</label>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <input type="email" id="email" class="peer w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-gold-accent transition placeholder-transparent" placeholder="Email">
+                            <label for="email" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gold-accent peer-focus:text-xs">Email</label>
+                        </div>
+                        <div class="relative">
+                            <textarea id="message" rows="2" class="peer w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-gold-accent transition placeholder-transparent" placeholder="Message"></textarea>
+                            <label for="message" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gold-accent peer-focus:text-xs">Message</label>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-gold-accent text-black font-bold uppercase tracking-widest hover:bg-white transition duration-300">Confirm Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 border-t border-white/10">
+        <div class="container mx-auto px-6 flex flex-col items-center">
+            <div class="text-gold-accent font-serif text-3xl font-bold mb-6 tracking-wider">ALLAN'S</div>
+            
+            <div class="flex space-x-8 text-gray-500 mb-8">
+                <a href="#" class="hover:text-gold-accent transition transform hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-gold-accent transition transform hover:-translate-y-1"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="hover:text-gold-accent transition transform hover:-translate-y-1"><i class="fab fa-twitter text-xl"></i></a>
+            </div>
+
+            <div class="text-center text-gray-600 text-xs tracking-widest uppercase">
+                <p class="mb-2">&copy; 2024 Allan's Cafe. All rights reserved.</p>
+                <p>Designed & Developed by <span class="text-gold-dim">Dw33pY</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/254742027430" target="_blank" class="fixed bottom-8 left-8 z-[100] group">
+        <div class="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div>
+        <div class="relative bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:bg-[#128C7E] transition duration-300">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </div>
+        <span class="absolute left-16 top-1/2 -translate-y-1/2 bg-white text-black px-3 py-1 rounded-sm text-xs font-bold opacity-0 group-hover:opacity-100 transition duration-300 whitespace-nowrap shadow-lg">Chat with us</span>
+    </a>
+
+    <button id="backToTop" class="fixed bottom-8 right-8 z-[100] bg-gold-accent text-black w-12 h-12 flex items-center justify-center shadow-lg opacity-0 translate-y-10 transition-all duration-500 hover:bg-white focus:outline-none">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
